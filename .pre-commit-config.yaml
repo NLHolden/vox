@@ -12,14 +12,12 @@ repos:
     hooks:
       - id: black
         language_version: python
-        exclude: ^src/main\.py$
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.16.10
     hooks:
       - id: ruff
         args: [--fix]
-        exclude: ^src/main\.py$
 
   - repo: local
     hooks:
@@ -27,6 +25,5 @@ repos:
         name: mypy
         entry: python -m mypy
         language: system
-        args: [--show-traceback]
+        args: [--show-traceback, --no-incremental]
         types: [python]
-        exclude: ^src/main\.py$
